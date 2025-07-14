@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using UniversityQ10.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<UniversityQ10Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("UniversityQ10Context") ?? throw new InvalidOperationException("Connection string 'UniversityQ10Context' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

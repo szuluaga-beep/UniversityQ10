@@ -15,5 +15,6 @@ namespace UniversityQ10.Data
         }
 
         public DbSet<Student> Student { get; set; } = default!;
+        public DbSet<Course> Course { get; set; } = default!;
     }
 }

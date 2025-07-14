@@ -16,5 +16,16 @@ namespace UniversityQ10.Data
 
         public DbSet<Student> Student { get; set; } = default!;
         public DbSet<Course> Course { get; set; } = default!;
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Student>().ToTable("Student");
+            modelBuilder.Entity<Course>().ToTable("Course");
+
+            modelBuilder.Entity<Course>()
+                .HasMany(c => c.Students)
+                .WithMany(s => s.Courses)
+                .UsingEntity(j => j.ToTable("CourseStudent"));
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace UniversityQ10.Models
         [Display(Name = "Identity Document")]
         public string Document { get; set; } = null!;
 
-        [Display(Name ="Full Name")]
+        [Display(Name = "Full Name")]
         public string FullName
         {
             get
@@ -33,5 +33,7 @@ namespace UniversityQ10.Models
                 return $"{FirtsName} {LastName}";
             }
         }
+
+        public IEnumerable<Course> Courses { get; set; } = new List<Course>();
     }
 }

@@ -18,5 +18,7 @@ namespace UniversityQ10.Models
 
         [Range(0, 5, ErrorMessage = "Credits must be between 0 and 5.")]
         public int Credits { get; set; }
+
+        public IEnumerable<Student> Students { get; set; } = new List<Student>();
     }
 }
